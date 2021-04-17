@@ -1,0 +1,29 @@
+---
+# nfs_server_configuration/tasks/main.yml
+
+- name: 'create directories from variable nfs_server_exports'
+  file:
+    path: "{{ item['path'] }}"
+    state: 'directory'
+    owner: "{{ item['owner'] }}" 
+    group: "{{ item['group'] }}"
+    mode: "{{ item['mode'] }}"
+  loop: "{{ nfs_server_exports | flatten }}"
+  notify:
+    - 'restart nfs-server'
+
+- name: 'create /etc/exports from template'
+  template:
+    src: 'etc_exports.j2'
+    dest: "{{ path_to_exports_file }}"
+    owner: "{{ exports_file_owner | default('root') }}"
+    group: "{{ exports_file_group | default('root') }}"
+    mode: "{{ exports_file_mode | default('0644') }}"
+  notify:
+    - 'restart nfs-server'
+
+- name: 'start and enable the nfs-server service'
+  service:
+    name: "{{ nfs_server_service }}"
+    state: 'started'
+    enabled: true
