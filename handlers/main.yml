@@ -1,0 +1,7 @@
+---
+# nfs_server_configuration/handlers/main.yml
+
+- name: "restart nfs-server"
+  service:
+    name: "{{ nfs_server_service }}"
+    state: "restarted"
