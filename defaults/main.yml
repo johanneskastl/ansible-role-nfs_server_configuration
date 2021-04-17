@@ -1,0 +1,5 @@
+---
+# nfs_server_configuration/defaults/main.yml
+
+# NFS server systemd service
+nfs_server_service: 'nfs-server.service'
