@@ -3,3 +3,6 @@
 
 # NFS server systemd service
 nfs_server_service: 'nfs-server.service'
+
+# path to exports file
+path_to_exports_file: '/etc/exports'
