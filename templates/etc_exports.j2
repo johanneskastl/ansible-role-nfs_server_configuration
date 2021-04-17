@@ -1,0 +1,6 @@
+#
+# {{ ansible_managed }}
+#
+{% for share in nfs_server_exports %}
+{{ share['path'] }}     {{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.netmask }}({{ share['nfs_options'] | default('rw,async,no_subtree_check,root_squash') }})
+{% endfor %}
