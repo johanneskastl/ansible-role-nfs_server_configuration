@@ -1,0 +1,13 @@
+---
+# nfs_server_configuration/tasks/create_directories.yml
+
+- name: 'create directories from variable nfs_server_exports'
+  file:
+    path: "{{ item['path'] }}"
+    state: 'directory'
+    owner: "{{ item['owner'] | default('root') }}"
+    group: "{{ item['group'] | default('root') }}"
+    mode: "{{ item['mode'] | default('0755') }}"
+  loop: "{{ nfs_server_exports | flatten }}"
+  notify:
+    - 'restart nfs-server'
