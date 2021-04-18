@@ -13,5 +13,5 @@
 #
 
 {% for share in nfs_server_exports %}
-{{ share['path'] }}	{{ share['allowed_clients_or_auth_options'] | default(default_allowed_clients_or_auth_options) }}({{ share['nfs_options'] | default('rw,async,no_subtree_check,root_squash') }})
+{{ share['path'] }}		{{ share['allowed_clients_or_auth_options'] | default(default_allowed_clients_or_auth_options) }}({{ share['nfs_options'] | default('rw,async,no_subtree_check,root_squash') }})
 {% endfor %}
