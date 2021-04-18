@@ -2,5 +2,7 @@
 # nfs_server_configuration/tasks/main.yml
 
 - include_tasks: create_directories.yml
+  when: 'nfs_server_exports is defined'
 
 - include_tasks: configure_exports_and_start_nfs_server.yml
+  when: 'nfs_server_exports is defined'
