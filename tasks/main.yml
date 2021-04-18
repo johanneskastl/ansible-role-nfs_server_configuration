@@ -3,18 +3,4 @@
 
 - include_tasks: create_directories.yml
 
-- name: 'create /etc/exports from template'
-  template:
-    src: 'etc_exports.j2'
-    dest: "{{ path_to_exports_file }}"
-    owner: "{{ exports_file_owner | default('root') }}"
-    group: "{{ exports_file_group | default('root') }}"
-    mode: "{{ exports_file_mode | default('0644') }}"
-  notify:
-    - 'restart nfs-server'
-
-- name: 'start and enable the nfs-server service'
-  service:
-    name: "{{ nfs_server_service }}"
-    state: 'started'
-    enabled: true
+- include_tasks: configure_exports_and_start_nfs_server.yml
