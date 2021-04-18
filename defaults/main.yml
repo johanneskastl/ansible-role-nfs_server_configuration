@@ -7,7 +7,7 @@ nfs_server_service: 'nfs-server.service'
 # path to exports file
 path_to_exports_file: '/etc/exports'
 
-# insecure default (for training purposes)
+# allow access for the whole subnet by default
 default_allowed_clients_or_auth_options: "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.netmask }}"
 
 # enable kerberos (false by default)
