@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'nfs_server_configuration'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Basic NFS server configuration'
   company: 'B1 Systems GmbH'
