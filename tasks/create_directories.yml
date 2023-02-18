@@ -2,7 +2,7 @@
 # nfs_server_configuration/tasks/create_directories.yml
 
 - name: 'create directories from variable nfs_server_exports'
-  file:
+  ansible.builtin.file:
     path: "{{ item['path'] }}"
     state: 'directory'
     owner: "{{ item['owner'] | default('root') }}"
