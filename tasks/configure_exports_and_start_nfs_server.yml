@@ -9,7 +9,7 @@
     group: "{{ exports_file_group | default('root') }}"
     mode: "{{ exports_file_mode | default('0644') }}"
   notify:
-    - 'restart nfs-server'
+    - 'Restart nfs-server'
 
 - name: 'start and enable the nfs-server service'
   ansible.builtin.service:
