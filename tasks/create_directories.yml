@@ -1,7 +1,7 @@
 ---
 # nfs_server_configuration/tasks/create_directories.yml
 
-- name: 'create directories from variable nfs_server_exports'
+- name: 'Create directories from variable nfs_server_exports'
   ansible.builtin.file:
     path: "{{ item['path'] }}"
     state: 'directory'
