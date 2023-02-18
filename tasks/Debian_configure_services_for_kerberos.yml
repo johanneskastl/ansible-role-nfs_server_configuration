@@ -9,7 +9,7 @@
 # - nfs-idmapd.service
 
 - name: 'Enable idmapd in /etc/default/nfs-common (needed for kerberized NFSv4)'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/default/nfs-common'
     regex: '^NEED_IDMAPD'
     line: 'NEED_IDMAPD=yes'
@@ -20,7 +20,7 @@
     - 'restart nfs-server'
 
 - name: 'Enable gssd in /etc/default/nfs-common (needed for kerberized NFSv4)'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/default/nfs-common'
     regex: '^NEED_GSSD'
     line: 'NEED_GSSD=yes'
@@ -31,7 +31,7 @@
     - 'restart nfs-server'
 
 - name: 'Enable svc.gssd in /etc/default/nfs-kernel-server (needed for kerberized NFSv4)'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/default/nfs-kernel-server'
     regex: '^NEED_SVCGSSD'
     line: 'NEED_SVCGSSD="yes"'
@@ -42,7 +42,7 @@
     - 'restart nfs-server'
 
 - name: 'Disable rpc.gssd debugging output in /etc/default/nfs-kernel-server'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/default/nfs-kernel-server'
     regex: '^RPCSVCGSSDOPTS'
     line: 'RPCSVCGSSDOPTS=""'
@@ -54,7 +54,7 @@
     - 'restart nfs-server'
 
 - name: 'Enable rpc.gssd debugging output in /etc/default/nfs-kernel-server'
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: '/etc/default/nfs-kernel-server'
     regex: '^RPCSVCGSSDOPTS'
     line: 'RPCSVCGSSDOPTS="-vvv"'
