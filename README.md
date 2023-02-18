@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-nfs_server_configuration/workflows/Ansible%20Lint/badge.svg)
+
 nfs_server_configuration
 =========
 
