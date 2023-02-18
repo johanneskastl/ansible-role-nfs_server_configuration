@@ -6,8 +6,7 @@
   when: 'nfs_server_exports is defined'
 
 - name: 'Run tasks from Debian_configure_services_for_kerberos.yml'
-  ansible.builtin.include_tasks:
-    file: Debian_configure_services_for_kerberos.yml
+  ansible.builtin.include_tasks: Debian_configure_services_for_kerberos.yml
   when:
     - 'ansible_os_family == "Debian"'
     - 'enable_kerberos | bool'
