@@ -3,7 +3,8 @@
 
 - name: 'Run tasks from create_directories.yml'
   ansible.builtin.include_tasks: create_directories.yml
-  when: 'nfs_server_exports is defined'
+  when:
+    - 'nfs_server_exports is defined'
 
 - name: 'Run tasks from Debian_configure_services_for_kerberos.yml'
   ansible.builtin.include_tasks: Debian_configure_services_for_kerberos.yml
@@ -13,4 +14,5 @@
 
 - name: 'Run tasks from configure_exports_and_start_nfs_server.yml'
   ansible.builtin.include_tasks: configure_exports_and_start_nfs_server.yml
-  when: 'nfs_server_exports is defined'
+  when:
+    - 'nfs_server_exports is defined'
